@@ -15,6 +15,7 @@ public class AppDelegate : UIApplicationDelegate
         vc.View!.AddSubview(new UILabel(Window!.Frame)
         {
             BackgroundColor = UIColor.White,
+            TextColor = UIColor.Black,
             TextAlignment = UITextAlignment.Center,
             Text = "Hello, iOS!",
             AutoresizingMask = UIViewAutoresizing.All,
