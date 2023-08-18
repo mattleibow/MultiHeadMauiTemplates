@@ -1,13 +1,9 @@
+using Android.App;
+using Android.Content.PM;
+
 namespace MauiApp123.Droid;
 
-[Activity(Label = "@string/app_name", MainLauncher = true)]
-public class MainActivity : Activity
+[Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+public class MainActivity : MauiAppCompatActivity
 {
-    protected override void OnCreate(Bundle? savedInstanceState)
-    {
-        base.OnCreate(savedInstanceState);
-
-        // Set our view from the "main" layout resource
-        SetContentView(Resource.Layout.activity_main);
-    }
 }
