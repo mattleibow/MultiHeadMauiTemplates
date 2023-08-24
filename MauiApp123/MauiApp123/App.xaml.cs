@@ -3,8 +3,8 @@
 public partial class App : Application
 {
     public App()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
     }
 
     protected override Window CreateWindow(IActivationState? activationState)

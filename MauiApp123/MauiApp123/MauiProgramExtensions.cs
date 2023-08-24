@@ -21,7 +21,7 @@ public static class MauiProgramExtensions
 
 		// pages
 		builder.Services.AddTransient<MainPage, MainPage>();
-		builder.Services.AddTransient<SecondPage, SecondPage>();
+		builder.Services.AddTransient<PlatformsPage, PlatformsPage>();
 
 #if DEBUG
 		// builder.Logging.AddDebug();
