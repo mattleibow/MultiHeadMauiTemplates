@@ -11,11 +11,13 @@
     <TabBar>
         <Tab Title=".NET MAUI">
             <ShellContent
+                Title=".NET MAUI"
                 ContentTemplate="{DataTemplate pages:MainPage}"
                 Route="Main" />
         </Tab>
         <Tab Title=".NET MAUI + Platform">
             <ShellContent
+                Title=".NET MAUI + Platform"
                 ContentTemplate="{DataTemplate pages:PlatformsPage}"
                 Route="Platforms" />
         </Tab>
