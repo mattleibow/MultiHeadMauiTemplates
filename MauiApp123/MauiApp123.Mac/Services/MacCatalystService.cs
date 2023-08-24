@@ -8,8 +8,8 @@ public class MacCatalystService : IPlatformSpecificService
 	{
 	}
 
-    public string GetPlatformDescription()
-    {
-        return "Mac Catalyst";
-    }
+	public string GetPlatformDescription()
+	{
+		return "Mac Catalyst";
+	}
 }

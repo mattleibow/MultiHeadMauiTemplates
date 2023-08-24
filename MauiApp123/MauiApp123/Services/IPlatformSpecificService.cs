@@ -4,5 +4,5 @@ namespace MauiApp123.Services;
 
 public interface IPlatformSpecificService
 {
-    string GetPlatformDescription();
+	string GetPlatformDescription();
 }

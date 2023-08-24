@@ -8,8 +8,8 @@ public class iOSService : IPlatformSpecificService
 	{
 	}
 
-    public string GetPlatformDescription()
-    {
-        return "iOS";
-    }
+	public string GetPlatformDescription()
+	{
+		return "iOS";
+	}
 }

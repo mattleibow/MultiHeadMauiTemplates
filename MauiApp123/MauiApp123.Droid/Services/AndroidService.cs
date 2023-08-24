@@ -8,8 +8,8 @@ public class AndroidService : IPlatformSpecificService
 	{
 	}
 
-    public string GetPlatformDescription()
-    {
-        return "Android";
-    }
+	public string GetPlatformDescription()
+	{
+		return "Android";
+	}
 }

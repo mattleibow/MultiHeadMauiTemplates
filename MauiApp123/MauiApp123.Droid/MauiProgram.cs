@@ -5,15 +5,15 @@ namespace MauiApp123;
 
 public static class MauiProgram
 {
-    public static MauiApp CreateMauiApp()
-    {
-        var builder = MauiApp.CreateBuilder();
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
 
-        builder
-            .UseSharedMauiApp();
+		builder
+			.UseSharedMauiApp();
 
-        builder.Services.AddTransient<IPlatformSpecificService, AndroidService>();
+		builder.Services.AddTransient<IPlatformSpecificService, AndroidService>();
 
-        return builder.Build();
-    }
+		return builder.Build();
+	}
 }

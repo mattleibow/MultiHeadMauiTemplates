@@ -8,8 +8,8 @@ public class WinUIService : IPlatformSpecificService
 	{
 	}
 
-    public string GetPlatformDescription()
-    {
-        return "WinUI";
-    }
+	public string GetPlatformDescription()
+	{
+		return "WinUI";
+	}
 }
