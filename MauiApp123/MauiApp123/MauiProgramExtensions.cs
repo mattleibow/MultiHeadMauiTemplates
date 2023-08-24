@@ -24,7 +24,7 @@ public static class MauiProgramExtensions
 		builder.Services.AddTransient<PlatformsPage, PlatformsPage>();
 
 #if DEBUG
-		// builder.Logging.AddDebug();
+		builder.Logging.AddDebug();
 #endif
 
 		return builder;
