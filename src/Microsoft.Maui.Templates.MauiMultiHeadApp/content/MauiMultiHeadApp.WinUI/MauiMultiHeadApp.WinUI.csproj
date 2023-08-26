@@ -11,6 +11,8 @@
 		<PublishProfile>win10-$(Platform).pubxml</PublishProfile>
 		<UseWinUI>true</UseWinUI>
 		<EnableMsixTooling>true</EnableMsixTooling>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<UseMaui>true</UseMaui>
 		<!-- We do not want XAML files to be processed as .NET MAUI XAML, but rather WinUI XAML. -->
 		<EnableDefaultMauiItems>false</EnableDefaultMauiItems>
@@ -18,7 +20,7 @@
 
 	<ItemGroup>
 		<!-- Make sure all image assets to be in the root of the package to match the other platforms -->
-		<Content Update="Assets\*" TargetPath="%(Filename)%(Extension)" />
+		<Content Update="Assets\Images\*" TargetPath="%(Filename)%(Extension)" />
 	</ItemGroup>
 
 	<ItemGroup>
