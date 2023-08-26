@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Microsoft",
+  "classifications": [ "MAUI", "Android", "iOS", "macOS", "Mac Catalyst", "Windows", "Tizen" ],
+  "identity": "Microsoft.Maui.MauiMultiHeadApp.CSharp",
+  "groupIdentity": "Microsoft.Maui.MultiHeadApp",
+  "name": ".NET MAUI Multi-Project App",
+  "description": "A project for creating a .NET MAUI application for iOS, Android, Mac Catalyst, WinUI and Tizen with separate app projects.",
+  "shortName": "maui-multihead",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "MauiMultiHeadApp",
+  "primaryOutputs": [
+    {
+      "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+      "path": "MauiMultiHeadApp/MainPage.xaml.cs"
+    },
+    {
+      "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+      "path": "MauiMultiHeadApp/MainPage.xaml"
+    }
+  ],
+  "postActions": [
+    {
+      "id": "openInEditor",
+      "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\" && HostIdentifier != \"vs\")",
+      "description": "Opens MainPage.xaml in the editor.",
+      "manualInstructions": [],
+      "actionId": "84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+      "args": {
+        "files": "0;1"
+      },
+      "continueOnError": true
+    }
+  ],
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "copyOnly": [
+        "**/*.svg",
+        "**/*.ttf"
+      ],
+      "modifiers": [
+        {
+          "condition": "(!android)",
+          "exclude": [
+            "MauiMultiHeadApp.Droid/**/*"
+          ]
+        },
+        {
+          "condition": "(!ios)",
+          "exclude": [
+            "MauiMultiHeadApp.iOS/**/*"
+          ]
+        },
+        {
+          "condition": "(!macos)",
+          "exclude": [
+            "MauiMultiHeadApp.Mac/**/*"
+          ]
+        },
+        {
+          "condition": "(!windows)",
+          "exclude": [
+            "MauiMultiHeadApp.WinUI/**/*"
+          ]
+        }
+      ]
+    }
+  ],
+  "preferNameDirectory": true,
+  "guids": [
+    "87919f9c-abb8-48e5-bae7-eb1b4140f6a8"
+  ],
+  "symbols": {
+    "applicationId": {
+      "type": "parameter",
+      "description": "Overrides the $(ApplicationId) in the project",
+      "datatype": "string"
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net7.0",
+          "description": "Target .NET 7.0"
+        },
+        {
+          "choice": "net8.0",
+          "description": "Target .NET 8.0"
+        }
+      ],
+      "replaces": "net7.0",
+      "defaultValue": "net7.0"
+    },
+    "Android": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true",
+        "description": "Include the Android app head project"
+    },
+    "iOS": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true",
+        "description": "Include the iOS app head project"
+    },
+    "macOS": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true",
+        "description": "Include the macOS app head project (using Mac Catalyst)"
+    },
+    "Windows": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true",
+        "description": "Include the Windows app head project (using WinUI 3)"
+    },
+    "HostIdentifier": {
+      "type": "bind",
+      "binding": "HostIdentifier"
+    },
+    "nameToLower": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "name",
+        "toLower": true
+      }
+    },
+    "defaultAppId": {
+      "type": "generated",
+      "generator": "join",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "const",
+            "value": "com.companyname."
+          },
+          {
+            "type": "ref",
+            "value": "nameToLower"
+          }
+        ]
+      }
+    },
+    "finalAppId": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "applicationId",
+        "fallbackVariableName": "defaultAppId"
+      },
+      "replaces": "com.companyname.mauiapp"
+    }
+  },
+  "defaultName": "MauiApp1"
+}
