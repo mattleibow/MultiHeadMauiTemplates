@@ -45,25 +45,25 @@
       ],
       "modifiers": [
         {
-          "condition": "(!android)",
+          "condition": "(!android && !AllPlatforms)",
           "exclude": [
             "MauiMultiHeadApp.Droid/**/*"
           ]
         },
         {
-          "condition": "(!ios)",
+          "condition": "(!ios && !AllPlatforms)",
           "exclude": [
             "MauiMultiHeadApp.iOS/**/*"
           ]
         },
         {
-          "condition": "(!macos)",
+          "condition": "(!maccatalyst && !AllPlatforms)",
           "exclude": [
             "MauiMultiHeadApp.Mac/**/*"
           ]
         },
         {
-          "condition": "(!windows)",
+          "condition": "(!winui && !AllPlatforms)",
           "exclude": [
             "MauiMultiHeadApp.WinUI/**/*"
           ]
@@ -98,29 +98,37 @@
       "replaces": "net7.0",
       "defaultValue": "net7.0"
     },
-    "Android": {
-        "type": "parameter",
-        "datatype": "bool",
-        "defaultValue": "true",
-        "description": "Include the Android app head project"
+    "android": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "defaultIfOptionWithoutValue": "true",
+      "description": "Include the Android app head project"
     },
-    "iOS": {
-        "type": "parameter",
-        "datatype": "bool",
-        "defaultValue": "true",
-        "description": "Include the iOS app head project"
+    "ios": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "defaultIfOptionWithoutValue": "true",
+      "description": "Include the iOS app head project"
     },
-    "macOS": {
-        "type": "parameter",
-        "datatype": "bool",
-        "defaultValue": "true",
-        "description": "Include the macOS app head project (using Mac Catalyst)"
+    "maccatalyst": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "defaultIfOptionWithoutValue": "true",
+      "description": "Include the macOS app head project (using Mac Catalyst)"
     },
-    "Windows": {
-        "type": "parameter",
-        "datatype": "bool",
-        "defaultValue": "true",
-        "description": "Include the Windows app head project (using WinUI 3)"
+    "winui": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "defaultIfOptionWithoutValue": "true",
+      "description": "Include the Windows app head project (using WinUI 3)"
+    },
+    "AllPlatforms": {
+      "type": "computed",
+      "value": "(!android && !ios && !maccatalyst && !winui)"
     },
     "HostIdentifier": {
       "type": "bind",

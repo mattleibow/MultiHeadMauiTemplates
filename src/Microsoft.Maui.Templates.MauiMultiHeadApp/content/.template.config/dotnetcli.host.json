@@ -1,11 +1,28 @@
 {
   "$schema": "http://json.schemastore.org/dotnetcli.host",
   "symbolInfo": {
+    "applicationId": {
+      "shortName": "id"
+    },
     "Framework": {
       "longName": "framework"
+    },
+    "android": {
+      "shortName": ""
+    },
+    "ios": {
+      "shortName": ""
+    },
+    "maccatalyst": {
+      "longName": "macos",
+      "shortName": ""
+    },
+    "winui": {
+      "longName": "windows",
+      "shortName": ""
     }
   },
   "usageExamples": [
-    "--framework net8.0"
+    "--framework net8.0 --android --ios"
   ]
 }
