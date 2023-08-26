@@ -103,6 +103,7 @@
       "datatype": "bool",
       "defaultValue": "false",
       "defaultIfOptionWithoutValue": "true",
+      "displayName": "Android",
       "description": "Include the Android app head project"
     },
     "ios": {
@@ -110,6 +111,7 @@
       "datatype": "bool",
       "defaultValue": "false",
       "defaultIfOptionWithoutValue": "true",
+      "displayName": "iOS",
       "description": "Include the iOS app head project"
     },
     "maccatalyst": {
@@ -117,6 +119,7 @@
       "datatype": "bool",
       "defaultValue": "false",
       "defaultIfOptionWithoutValue": "true",
+      "displayName": "macOS using Mac Catalyst",
       "description": "Include the macOS app head project (using Mac Catalyst)"
     },
     "winui": {
@@ -124,6 +127,7 @@
       "datatype": "bool",
       "defaultValue": "false",
       "defaultIfOptionWithoutValue": "true",
+      "displayName": "Windows using WinUI 3",
       "description": "Include the Windows app head project (using WinUI 3)"
     },
     "AllPlatforms": {

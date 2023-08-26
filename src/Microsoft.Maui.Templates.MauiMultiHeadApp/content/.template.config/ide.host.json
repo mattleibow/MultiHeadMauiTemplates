@@ -19,6 +19,26 @@
       "id": "Framework",
       "persistenceScope": "shared",
       "persistenceScopeName": "maui"
+    },
+    {
+      "id": "android",
+      "isVisible": true,
+      "defaultValue": "true"
+    },
+    {
+      "id": "ios",
+      "isVisible": true,
+      "defaultValue": "true"
+    },
+    {
+      "id": "maccatalyst",
+      "isVisible": true,
+      "defaultValue": "true"
+    },
+    {
+      "id": "winui",
+      "isVisible": true,
+      "defaultValue": "true"
     }
   ]
 }
