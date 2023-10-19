@@ -30,8 +30,8 @@ jobs:
       fail-fast: false
       matrix:
         net: [ '7.0', '8.0' ]
-        os: [ macos-latest, windows-latest ]
-    runs-on: ${{ matrix.os }}
+        os: [ macos, windows ]
+    runs-on: ${{ matrix.os }}-latest
     needs: build
     steps:
     - name: Setup .NET
