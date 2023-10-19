@@ -1,0 +1,47 @@
+name: Build Templates
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Pack
+      run: dotnet pack src/Microsoft.Maui.Templates.MauiMultiHeadApp
+    - name: Upload
+      uses: actions/upload-artifact@v3.1.3
+      with:
+        name: nuget
+        path: src/Microsoft.Maui.Templates.MauiMultiHeadApp/bin/Release/*.nupkg
+
+  test-windows:
+    runs-on: windows-latest
+    needs: build
+    steps:
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Download
+      uses: actions/download-artifact@v2.1.1
+      id: download
+      with:
+        name: nuget
+        path: nuget
+    - name: Install
+      run: dotnet new install ${{steps.download.outputs.download-path}}/*.nupkg
+    - name: Create
+      run: dotnet new maui-multihead -o TestMauiApp
+    - name: Build
+      run: dotnet build TestMauiApp\TestMauiApp.WinUI\TestMauiApp.WinUI.csproj
+      
