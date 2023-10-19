@@ -134,6 +134,10 @@
       "type": "computed",
       "value": "(!android && !ios && !maccatalyst && !winui)"
     },
+    "RequiresMauiPackgeReference": {
+      "type": "computed",
+      "value": "(Framework != 'net7.0')"
+    },
     "HostIdentifier": {
       "type": "bind",
       "binding": "HostIdentifier"

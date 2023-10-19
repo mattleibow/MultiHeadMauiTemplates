@@ -9,6 +9,13 @@
 		<UseMaui>true</UseMaui>
 	</PropertyGroup>
 
+	<!--#if (RequiresMauiPackgeReference) -->
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+	</ItemGroup>
+
+	<!--#endif -->
 	<ItemGroup>
 		<ProjectReference Include="..\MauiMultiHeadApp\MauiMultiHeadApp.csproj" />
 	</ItemGroup>

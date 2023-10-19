@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Microsoft.Maui.Templates.MauiMultiHeadApp</PackageId>
+    <PackageVersion>1.0</PackageVersion>
+    <Title>.NET MAUI Multi-Project App Templates</Title>
+    <Authors>Microsoft.</Authors>
+    <Description>A set of project and solution templates to get started using .NET MAUI with a multi-project app. Instead of a single project, there is a separate project for each platform as well as a project for the main shared code. This is very similar to Xamarin.Forms default project templates.</Description>
+    <PackageTags>.NET MAUI,Project Template,Templates,Windows,Android,iOS,Mac Catalyst,macOS</PackageTags>
+    <PackageProjectUrl>https://github.com/mattleibow/MauiMultiHeadProject</PackageProjectUrl>
+
+    <!-- Keep package type as 'Template' to show the package as a template package on nuget.org and make your template available in dotnet new search.-->
+    <PackageType>Template</PackageType>
+    <TargetFramework>net8.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LocalizeTemplates>false</LocalizeTemplates>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TemplateEngine.Tasks" Version="*" PrivateAssets="all" IsImplicitlyDefined="true"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**;content\*.sln" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>

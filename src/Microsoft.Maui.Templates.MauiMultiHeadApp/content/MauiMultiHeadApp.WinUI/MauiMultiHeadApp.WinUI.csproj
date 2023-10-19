@@ -18,6 +18,17 @@
 		<EnableDefaultMauiItems>false</EnableDefaultMauiItems>
 	</PropertyGroup>
 
+	<!--#if (RequiresMauiPackgeReference) -->
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+	</ItemGroup>
+
+	<!--#endif -->
+	<ItemGroup>
+		<ProjectReference Include="..\MauiMultiHeadApp\MauiMultiHeadApp.csproj" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<!-- Make sure all image assets to be in the root of the package to match the other platforms -->
 		<Content Update="Assets\Images\*" TargetPath="%(Filename)%(Extension)" />
@@ -25,10 +36,6 @@
 
 	<ItemGroup>
 		<Manifest Include="$(ApplicationManifest)" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\MauiMultiHeadApp\MauiMultiHeadApp.csproj" />
 	</ItemGroup>
 
 	<!--
