@@ -27,6 +27,7 @@ jobs:
   test:
     name: Test
     strategy:
+      fail-fast: false
       matrix:
         net: [ '7.0', '8.0' ]
         os: [ macos-latest, windows-latest ]
@@ -51,7 +52,7 @@ jobs:
       run: dotnet new maui-multihead -o TestMauiApp -f net${{ matrix.net }}
     - name: Build Windows
       if: ${{ matrix.os == 'windows-latest' }}
-      run: dotnet build TestMauiApp/TestMauiApp.WinUI/TestMauiApp.WinUI.csproj
+      run: dotnet build TestMauiApp/TestMauiApp.WinUI/TestMauiApp.WinUI.csproj -p:Platform=x64
     - name: Build Android
       run: dotnet build TestMauiApp/TestMauiApp.Droid/TestMauiApp.Droid.csproj
     - name: Build iOS
