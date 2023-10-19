@@ -24,15 +24,19 @@ jobs:
         name: nuget
         path: src/Microsoft.Maui.Templates.MauiMultiHeadApp/bin/Release/*.nupkg
 
-  test-windows:
-    name: Test on Windows
-    runs-on: windows-latest
+  test:
+    name: Test
+    strategy:
+      matrix:
+        net: [ 7.0, 8.0 ]
+        os: [ macos-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
     needs: build
     steps:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: ${{ matrix.net }}.x
     - name: Setup .NET Worklaods
       run: dotnet workload install maui
     - name: Download
@@ -44,36 +48,13 @@ jobs:
     - name: Install
       run: dotnet new install ${{steps.download.outputs.download-path}}/*.nupkg
     - name: Create
-      run: dotnet new maui-multihead -o TestMauiApp
+      run: dotnet new maui-multihead -o TestMauiApp -f net${{ matrix.net }}
     - name: Build Windows
+      if: ${{ matrix.os == 'windows-latest' }}
       run: dotnet build TestMauiApp\TestMauiApp.WinUI\TestMauiApp.WinUI.csproj
     - name: Build Android
       run: dotnet build TestMauiApp\TestMauiApp.Droid\TestMauiApp.Droid.csproj
-
-  test-macos:
-    name: Test on macOS
-    runs-on: windows-latest
-    needs: build
-    steps:
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 8.0.x
-    - name: Setup .NET Worklaods
-      run: dotnet workload install maui
-    - name: Download
-      uses: actions/download-artifact@v2.1.1
-      id: download
-      with:
-        name: nuget
-        path: nuget
-    - name: Install
-      run: dotnet new install ${{steps.download.outputs.download-path}}/*.nupkg
-    - name: Create
-      run: dotnet new maui-multihead -o TestMauiApp
     - name: Build iOS
       run: dotnet build TestMauiApp\TestMauiApp.iOS\TestMauiApp.iOS.csproj
     - name: Build macOS (Mac Catalyst)
       run: dotnet build TestMauiApp\TestMauiApp.Mac\TestMauiApp.Mac.csproj
-    - name: Build Android
-      run: dotnet build TestMauiApp\TestMauiApp.Droid\TestMauiApp.Droid.csproj
