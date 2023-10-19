@@ -51,10 +51,10 @@ jobs:
       run: dotnet new maui-multihead -o TestMauiApp -f net${{ matrix.net }}
     - name: Build Windows
       if: ${{ matrix.os == 'windows-latest' }}
-      run: dotnet build TestMauiApp\TestMauiApp.WinUI\TestMauiApp.WinUI.csproj
+      run: dotnet build TestMauiApp/TestMauiApp.WinUI/TestMauiApp.WinUI.csproj
     - name: Build Android
-      run: dotnet build TestMauiApp\TestMauiApp.Droid\TestMauiApp.Droid.csproj
+      run: dotnet build TestMauiApp/TestMauiApp.Droid/TestMauiApp.Droid.csproj
     - name: Build iOS
-      run: dotnet build TestMauiApp\TestMauiApp.iOS\TestMauiApp.iOS.csproj
+      run: dotnet build TestMauiApp/TestMauiApp.iOS/TestMauiApp.iOS.csproj
     - name: Build macOS (Mac Catalyst)
-      run: dotnet build TestMauiApp\TestMauiApp.Mac\TestMauiApp.Mac.csproj
+      run: dotnet build TestMauiApp/TestMauiApp.Mac/TestMauiApp.Mac.csproj
