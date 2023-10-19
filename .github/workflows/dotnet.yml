@@ -28,7 +28,7 @@ jobs:
     name: Test
     strategy:
       matrix:
-        net: [ 7.0, 8.0 ]
+        net: [ '7.0', '8.0' ]
         os: [ macos-latest, windows-latest ]
     runs-on: ${{ matrix.os }}
     needs: build
