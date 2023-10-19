@@ -30,8 +30,8 @@ jobs:
       fail-fast: false
       matrix:
         net: [ '7.0', '8.0' ]
-        os: [ macos, windows ]
-    runs-on: ${{ matrix.os }}-latest
+        os: [ macos-13, windows-latest ]
+    runs-on: ${{ matrix.os }}
     needs: build
     steps:
     - name: Setup .NET
@@ -40,11 +40,6 @@ jobs:
         dotnet-version: ${{ matrix.net }}.x
     - name: Setup .NET Worklaods
       run: dotnet workload install maui
-    - name: Setup Xcode
-      if: ${{ matrix.os == 'macos' }}
-      uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: '14.3.1'
     - name: Download
       uses: actions/download-artifact@v2.1.1
       id: download
@@ -62,5 +57,5 @@ jobs:
     - name: Build macOS (Mac Catalyst)
       run: dotnet build TestMauiApp/TestMauiApp.Mac/TestMauiApp.Mac.csproj
     - name: Build Windows
-      if: ${{ matrix.os == 'windows' }}
+      if: ${{ matrix.os == 'windows-latest' }}
       run: dotnet build TestMauiApp/TestMauiApp.WinUI/TestMauiApp.WinUI.csproj -p:Platform=x64
