@@ -20,7 +20,12 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<!--#endif -->
+		<!--#if (Framework == 'net7.0') -->
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<!--#endif -->
+		<!--#if (Framework == 'net8.0') -->
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<!--#endif -->
 	</ItemGroup>
 
 </Project>

@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Microsoft.Maui.Templates.MauiMultiHeadApp</PackageId>
+    <PackageId>MauiMultiHeadTemplates</PackageId>
     <PackageVersion>1.0</PackageVersion>
     <Title>.NET MAUI Multi-Project App Templates</Title>
-    <Authors>Microsoft.</Authors>
+    <Authors>Matthew Leibowitz</Authors>
     <Description>A set of project and solution templates to get started using .NET MAUI with a multi-project app. Instead of a single project, there is a separate project for each platform as well as a project for the main shared code. This is very similar to Xamarin.Forms default project templates.</Description>
     <PackageTags>.NET MAUI,Project Template,Templates,Windows,Android,iOS,Mac Catalyst,macOS</PackageTags>
     <PackageProjectUrl>https://github.com/mattleibow/MauiMultiHeadProject</PackageProjectUrl>
