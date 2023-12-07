@@ -34,17 +34,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     needs: build
     steps:
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'microsoft'
+        java-version: '17'
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ matrix.net }}.x
     - name: Setup .NET Workloads
       run: dotnet workload install maui
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'microsoft'
-        java-version: '17'
     - name: Download
       uses: actions/download-artifact@v2.1.1
       id: download
