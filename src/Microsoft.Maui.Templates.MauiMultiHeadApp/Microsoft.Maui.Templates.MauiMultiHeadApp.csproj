@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>MauiMultiHeadTemplates</PackageId>
+    <PackageId>MultiHeadMauiTemplates</PackageId>
     <PackageVersion>1.0</PackageVersion>
     <Title>.NET MAUI Multi-Project App Templates</Title>
     <Authors>Matthew Leibowitz</Authors>
