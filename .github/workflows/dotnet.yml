@@ -43,6 +43,7 @@ jobs:
     - name: Setup Java
       uses: actions/setup-java@v4
       with:
+        distribution: 'microsoft'
         java-version: '17'
     - name: Download
       uses: actions/download-artifact@v2.1.1
