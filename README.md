@@ -8,13 +8,13 @@ different versions of an app for a single platform.
 ## Installing
 
 ```
-dotnet new install MauiMultiHeadTemplates
+dotnet new install MultiHeadMauiTemplates
 ```
 
 ## Uninstalling
 
 ```
-dotnet new uninstall MauiMultiHeadTemplates
+dotnet new uninstall MultiHeadMauiTemplates
 ```
 
 ## Using
